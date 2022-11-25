@@ -15,6 +15,7 @@
 	<title></title>
 </head>
 <header>	
+
 		<img  style="position:absolute; top:10px; left:10px; width:50px;"src="img/1.jpg">
 		<div style="position:absolute; top:15px; left:-70px;"class = "title">поедИм</div>
 		<ul class = "menu" >
@@ -25,6 +26,7 @@
 
 		<div class = "fon3">
 <h1>Ваш выбор - <?php echo $ingredient ?>.<br>Мы нашли для вас рецепты!</h1>
+
 <?php
 	$result=mysqli_query($induction,"select name_bludo, about_bludo, image_bludo from rec inner join bludo on (rec.id_bludo_r=bludo.id_bludo) inner join ing on (rec.id_ing_r=ing.id_ing) where ing.name_ing='$ingredient' LIMIT 0, 25;");
 		while ($row=mysqli_fetch_array($result)){
@@ -32,6 +34,7 @@
 			$about_bludo=$row['about_bludo'];
 			$image_bludo=$row['image_bludo'];
 	?>
+
 <table style="margin-top:30px; margin-bottom:30px; ">
 <tr>
 	<td><img style="  width: 300px;"src="<?php echo $image_bludo;?>"></td>
@@ -42,5 +45,6 @@
 }
 ?>
 </div>
+
 </body>
 </html>
