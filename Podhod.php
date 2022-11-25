@@ -2,7 +2,7 @@
 	session_start();
 	include "database.php";
 	if (isset($_POST['ingredient'])) { $ingredient = $_POST['ingredient'];} 
-	if (empty($ingredient)) //если пользователь не ввел логин или пароль, то выдаем ошибку и останавливаем скрипт
+	if (empty($ingredient))
     {
 		exit ("Вы ничего не выбрали! Пожалуйста, отметьте один ингредиент для поиска.");
     }
