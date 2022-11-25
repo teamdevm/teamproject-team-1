@@ -10,6 +10,7 @@ include "database.php";
 	<title></title>
 </head>
 <header>	
+
 		<img  style="position:absolute; top:10px; left:10px; width:50px;"src="img/1.jpg">
 		<div style="position:absolute; top:15px; left:-70px; "class = "title">поедИм</div>
 		<ul class = "menu" >
