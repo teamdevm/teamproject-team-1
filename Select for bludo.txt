@@ -1,0 +1,3 @@
+/*---для вывода таблицы "Блюдо" с поиском по названию ингредиента-----*/
+
+select name_bludo, about_bludo, image_bludo from rec inner join bludo on (rec.id_bludo_r=bludo.id_bludo) inner join ing on (rec.id_ing_r=ing.id_ing) where ing.name_ing='$ingredient' LIMIT 0, 25;

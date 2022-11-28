@@ -1,0 +1,26 @@
+/*---создание таблиц---*/
+
+/*---Таблица "Ингредиенты"---*/
+create table ing (
+id_ing int primary key,
+name_ing text not null
+);
+
+/*---Таблица "Блюдо"---*/
+create table bludo (
+id_bludo int primary key,
+name_bludo text not null,
+about_bludo text not null,
+image_bludo text not null
+);
+
+/*--Таблица "Рецепт"---*/
+create table rec (
+id_ing_r int,
+id_bludo_r int,
+recept text not null,
+masse float not null,
+foreign key (id_ing_r) references ing(id_ing),
+foreign key (id_bludo_r) references bludo(id_bludo)
+);
+
