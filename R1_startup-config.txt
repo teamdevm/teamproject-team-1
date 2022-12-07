@@ -1,0 +1,164 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2811/K9 sn FTX10173P10-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/0/0
+ description Frame Relay link to R2, R3
+ ip address 192.168.100.1 255.255.255.248
+ encapsulation frame-relay
+ ip ospf authentication message-digest
+ ip ospf message-digest-key 10 md5 H4&hdn3&
+ ip ospf network broadcast
+ ip ospf priority 0
+ clock rate 128000
+!
+interface Serial0/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/3/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/3/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface FastEthernet1/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet1/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial1/0/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial1/0/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial1/1/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial1/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ passive-interface default
+ no passive-interface Serial0/0/0
+ network 192.168.100.0 0.0.0.255 area 0
+ network 192.168.0.1 0.0.0.0 area 0
+!
+router rip
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+end
+
