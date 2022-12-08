@@ -14,6 +14,8 @@
 		<img  style="position:absolute; top:10px; left:10px; width:50px;"src="img/1.png">
 		<div style="position:absolute; top:15px; left:-70px;"class = "title">поедИм</div>
 		<ul class = "menu" >
+		<li ><a style="" href ="index.php" "#">главная</a></li>
+		<li ><a style="  " href ="Rand.php" "#">рецепт фортуны</a></li>
 		</ul>
 </header>
 <body>
