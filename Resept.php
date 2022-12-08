@@ -24,6 +24,25 @@
 		</ul>
 </header>
 <body>
+<?php
+$result=mysqli_query($induction,"select image_bludo, id_bludo from bludo where name_bludo='$name_bludo';");
+		while ($row=mysqli_fetch_array($result)){
+			$image_bludo=$row['image_bludo'];
+			$id_bludo=$row['id_bludo'];
+		} ?>
 
+	<img src="<?php echo $image_bludo;?>" >
+	<?php echo $name_bludo;?>
+<?php
+$res=mysqli_query($induction,"select name_ing, massa, name_m from rec  inner join ing on (rec.id_ing_r=ing.id_ing) inner join mass on (ing.id_ing=mass.id_ing_m)  where id_bludo_r='$id_bludo' LIMIT 0, 25;");
+		while ($yum=mysqli_fetch_array($res)){
+			$name_ing=$yum['name_ing'];
+			$massa=$yum['massa'];
+			$name_m=$yum['name_m'];
+			echo $name_ing;?> <?php
+			echo $massa;?> <?php
+			echo $name_m;?>
+			<br><?php
+		} ?>
 </body>
 </html>
