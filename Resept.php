@@ -43,6 +43,25 @@ $res=mysqli_query($induction,"select name_ing, massa, name_m from rec  inner joi
 			echo $massa;?> <?php
 			echo $name_m;?>
 			<br><?php
+		} ?>	
+<h2 ><center>следуй пошаговому рецепту!</center></h2>
+<?php
+			$a = mysqli_query($induction,"select COUNT(*) from rec inner join steps on (rec.id_step_r=steps.id_step) where id_bludo_r='$id_bludo' LIMIT 0, 25; ");
+			$b = mysqli_fetch_array( $a );
+			$i=$b[0]-$b[0]+1;
+while ($i<=$b[0]){
+$r=mysqli_query($induction,"select id_step,photo_step, about_step from rec inner join steps on (rec.id_step_r=steps.id_step) where id_bludo_r='$id_bludo' LIMIT 0, 25;");
+		while ($st=mysqli_fetch_array($r)){
+			$id_step=$st['id_step'];
+			$photo_step=$st['photo_step'];
+			$about_step=$st['about_step'];
+			?>
+			<h2>шаг<?php echo $i;?></h2>
+			<img style=""src="<?php echo $photo_step;?>" >
+			<b><?php echo $about_step;?></b> 
+			<?php
+			$i=$i+1;
+				}
 		} ?>
 </body>
 </html>
